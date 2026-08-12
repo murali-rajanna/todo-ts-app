@@ -40,6 +40,7 @@ function renderTodos(): void {
         span.textContent = `${index + 1}. ${todo.text}`;
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'delete-btn';
+        deleteBtn.id = `delete-btn-${index + 1}`;
         deleteBtn.textContent = 'Delete';
         deleteBtn.addEventListener('click', () => deleteTodo(todo.id));
         li.appendChild(span);
