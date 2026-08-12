@@ -5,14 +5,15 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && npx -y serve .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build && npx -y serve ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0",
     "typescript": "^7.0.2"
   }
 }
