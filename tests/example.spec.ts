@@ -5,26 +5,71 @@ test('has correct title', async ({ page }) => {
   await expect(page.getByRole('heading')).toHaveText('My Todos');
 });
 
-// Has correct description
+/** 
+ * Task 1:
+ * Write a test to check that the correct description appears above the text box.
+ * You'll want to select by a different role for this.
+**/
 
-// beforeEach?
+/** 
+ * Task 2:
+ * We now have a couple tests routing to the homepage, and we can expect that the rest will as well.
+ * It would be helpful to define the routing once for all tests.
+ * Try using a beforeEach before your two tests to do the routing, and remove routing from the tests.
+**/
 
-// Has free text box
+/** 
+ * Task 3:
+ * Write a test to check that the text box appears, with the correct placeholder.
+ * 
+**/
 
-// Has add button
+/** 
+ * Task 4:
+ * Has add button
+**/
 
-// Can add list item
+/** 
+ * Task 5:
+ * Can add list item
+**/
 
-// Can add multiple list items
+/** 
+ * Task 6:
+ * Can add multiple list items
+**/
 
-// Can remove list item
+/** 
+ * Task 7:
+ * Can remove list item
+**/
 
+/** 
+ * Task 8:
+ * Now we want to check the tabs route to the different pages.
+ * This is testing differently to the tests above, routing rather than the page showing and working.
+ * Try using a describe block to wrap the tests you have already with an accurate title, and make a new one for the routing tests you're about to write.
+ * You'll notice that this divides up the tests in the Playwright UI.
+**/
 
-// Routing -- split into describe blocks?
+/** 
+ * Task 9:
+ * Can route to About
+**/
 
-//  Can route to About
-//  Can route back to Home from About
-//  Can route to Author
-//  Can route to Test
+/** 
+ * Task 10:
+ * Can route back again
+**/
 
-// Ya did it!
+/** 
+ * Task 11:
+ * Can route to Author
+**/
+
+/** 
+ * Task 11:
+ * Can route to Test
+**/
+
+/* You did it! Have a cookie 🍪 */
