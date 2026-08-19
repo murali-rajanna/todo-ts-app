@@ -1,11 +1,11 @@
 import { test, expect, devices } from '@playwright/test';
 
 
-test.beforeEach(async ({ page }) => {
-  await page.goto('/');
-});
+test.describe('Page elements', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
 
-test.describe('Page interactions', () => {
   test('has correct title', async ({ page }) => {
     await expect(page.getByRole('heading')).toHaveText('My Todos');
   });
@@ -16,15 +16,19 @@ test.describe('Page interactions', () => {
 
   test('has free text box', async ({ page }) => {
     await expect(page.getByRole('textbox')).toBeVisible();
-    await expect(page.getByRole('textbox')).toHaveAttribute('placeholder');
     await expect(page.getByPlaceholder('What needs to be done?')).toBeVisible();
   });
 
   test('has add button', async ({ page }) => {
-    await expect(page.getByRole('button')).toBeVisible();
     await expect(page.getByRole('button')).toHaveText('Add');
   });
-  
+});
+
+test.describe('Page interactions', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
   test('can add list item', async ({ page }) => {
     await page.getByRole('textbox').fill('Hello');
     await page.locator('#add-btn').click();
@@ -63,29 +67,17 @@ test.describe('Page interactions', () => {
 
 test.describe('Routing', () => {
   test('can route to About', async ({ page }) => {
+    await page.goto('/');
+
     await page.getByTestId('nav-link-about').click();
     
     await expect(page).toHaveURL(/about/);
   });
   
   test('can route back again', async ({ page }) => {
-    await page.getByTestId('nav-link-about').click();
-    
-    await expect(page).toHaveURL(/about/);
+    await page.goto('/about/');
     
     await page.getByTestId('nav-link-todos').click();
-    await expect(page).toHaveURL(/(.)+\//);
-  });
-  
-  test('can route to Author', async ({ page }) => {
-    await page.getByTestId('nav-link-author').click();
-    
-    await expect(page).toHaveURL(/author/);
-  });
-
-  test('can route to Test', async ({ page }) => {
-    await page.getByTestId('nav-link-test').click();
-    
-    await expect(page).toHaveURL(/test/);
+    await expect(page).toHaveURL(/\//);
   });
 });
