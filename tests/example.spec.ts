@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
-test('has correct title', async ({ page }) => {
-  await page.goto('/');
-  await expect(page.getByRole('heading')).toHaveText('My Todos');
-});
+/** 
+ * Task 0:
+ * Follow along with the example test
+*/
 
 /** 
  * Task 1:
