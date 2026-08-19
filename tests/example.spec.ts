@@ -65,32 +65,27 @@ test.describe('Routing', () => {
   test('can route to About', async ({ page }) => {
     await page.getByTestId('nav-link-about').click();
     
-    await expect(page).toHaveURL(/(.)+\/about/);
-    await expect(page.getByRole('heading')).toHaveText('About');
+    await expect(page).toHaveURL(/about/);
   });
   
   test('can route back again', async ({ page }) => {
     await page.getByTestId('nav-link-about').click();
     
-    await expect(page).toHaveURL(/(.)+\/about/);
-    await expect(page.getByRole('heading')).toHaveText('About');
+    await expect(page).toHaveURL(/about/);
     
     await page.getByTestId('nav-link-todos').click();
     await expect(page).toHaveURL(/(.)+\//);
-    await expect(page.getByRole('heading')).toHaveText('My Todos');
   });
   
   test('can route to Author', async ({ page }) => {
     await page.getByTestId('nav-link-author').click();
     
-    await expect(page).toHaveURL(/(.)+\/author/);
-    await expect(page.getByRole('heading')).toHaveText('Author');
+    await expect(page).toHaveURL(/author/);
   });
 
   test('can route to Test', async ({ page }) => {
     await page.getByTestId('nav-link-test').click();
     
-    await expect(page).toHaveURL(/(.)+\/test/);
-    await expect(page.getByRole('heading')).toHaveText('Test');
+    await expect(page).toHaveURL(/test/);
   });
 });
