@@ -82,12 +82,11 @@ test.beforeEach(async ({ page }) => {
  * You'll need to start on another page for this, and it doesn't make sense to go to home and then to that page.
  * So here, you'll need to move the beforeEach again. The two previous describes each get a copy, this block gets none.
  * This means the first routing test needs a page.goto('/'), and this test will need page.goto('/about/')
- * To check that we navigate back to home we need do this check: .toHaveURL(/(.)+\//)
+ * To check that we navigate back to home we need do this check: .toHaveURL(/\//)
  * 
  * This is an example of Regex being weird, you don't need to worry about it, but if you care here's the explaination:
- * The slashes either end mark it as Regex. 
- * (.)+ means any character (the dot), any number of times (the plus), the brackets contain a charcter sequence, so you could do abc any number of times - (abc)+
- * \/ 
+ * The slashes either end mark it as Regex.
+ * \/ Means check for a forward slash, the back slash "escapes" the forward slash so that it doesn't count as a Regex marker, like the first and last one.
 **/
 
 /* You did it! Have a cookie 🍪 */
