@@ -20,7 +20,7 @@ test.describe('Page elements', () => {
   });
 
   test('has add button', async ({ page }) => {
-    await expect(page.getByRole('button')).toHaveText('Add');
+    await expect(page.getByRole('button', {name: 'Add'})).toBeVisible();
   });
 });
 
@@ -31,17 +31,17 @@ test.describe('Page interactions', () => {
 
   test('can add list item', async ({ page }) => {
     await page.getByRole('textbox').fill('Hello');
-    await page.locator('#add-btn').click();
+    await page.getByRole('button', {name: 'Add'}).click();
     await expect(page.getByText('Hello')).toBeVisible();
   });
   
   test('can add multiple list items', async ({ page }) => {
     await page.getByRole('textbox').fill('Hello');
-    await page.locator('#add-btn').click();
+    await page.getByRole('button', {name: 'Add'}).click();
     await page.getByRole('textbox').fill('There');
-    await page.locator('#add-btn').click();
+    await page.getByRole('button', {name: 'Add'}).click();
     await page.getByRole('textbox').fill('General');
-    await page.locator('#add-btn').click();
+    await page.getByRole('button', {name: 'Add'}).click();
     await expect(page.getByText('Hello')).toBeVisible();
     await expect(page.getByText('There')).toBeVisible();
     await expect(page.getByText('General')).toBeVisible();
@@ -49,11 +49,11 @@ test.describe('Page interactions', () => {
 
   test('can remove list item', async ({ page }) => {
     await page.getByRole('textbox').fill('Hello');
-    await page.locator('#add-btn').click();
+    await page.getByRole('button', {name: 'Add'}).click();
     await page.getByRole('textbox').fill('There');
-    await page.locator('#add-btn').click();
+    await page.getByRole('button', {name: 'Add'}).click();
     await page.getByRole('textbox').fill('General');
-    await page.locator('#add-btn').click();
+    await page.getByRole('button', {name: 'Add'}).click();
     await expect(page.getByText('Hello')).toBeVisible();
     await expect(page.getByText('There')).toBeVisible();
     await expect(page.getByText('General')).toBeVisible();
