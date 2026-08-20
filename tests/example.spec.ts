@@ -50,7 +50,7 @@ test.beforeEach(async ({ page }) => {
 /** 
  * Task 7:
  * Write a test to add multiple list items.
- * You might have trouble selecting the add button, if you're selecting by role "button" - the list items have buttons, too!
+ * You might have trouble selecting additional delete buttons, there's multiple identical ones!
  * You can select an element by ID by using page.locator('#exampleid'), IDs should always be unique.
 **/
 
